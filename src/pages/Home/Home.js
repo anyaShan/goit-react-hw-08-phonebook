@@ -5,7 +5,7 @@ import { Title } from './Home.styled';
 const Home = () => {
   return (
     <MainContainer>
-      <Title>Tranding today</Title>
+      <Title>Welcome to your phone book!</Title>
     </MainContainer>
   );
 };

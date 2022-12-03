@@ -1,7 +1,7 @@
 import { Formik, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
-// import { useDispatch, useSelector } from 'react-redux/es/exports';
-// import { addContact } from 'redux/operations';
+import { useDispatch } from 'react-redux/es/exports';
+import { register } from 'redux/auth/operations';
 // import { selectContacts } from 'redux/selectors';
 import * as yup from 'yup';
 import { FormWrap, FieldWrap } from './RegisterForm.styled';
@@ -13,16 +13,16 @@ let schema = yup.object().shape({
 });
 
 export const RegisterForm = () => {
-  //   const dispatch = useDispatch();
-  //   const contacts = useSelector(selectContacts);
+  const dispatch = useDispatch();
+
   const namelInputId = nanoid();
   const emailInputId = nanoid();
   const passwordInputId = nanoid();
 
   const handleFormSubmit = (values, { resetForm }) => {
-    // const { email, password } = values;
+    const { name, email, password } = values;
 
-    // dispatch(addContact({ email, password }));
+    dispatch(register({ name, email, password }));
     resetForm();
   };
 
