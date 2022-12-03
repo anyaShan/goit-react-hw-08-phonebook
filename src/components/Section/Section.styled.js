@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const SectionWrapper = styled.section`
   width: 400px;
+  flex-grow: 1;
   padding: 25px;
   background-color: rgb(243, 240, 240);
   border-radius: 5px;
