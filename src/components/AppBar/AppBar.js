@@ -10,7 +10,6 @@ export const AppBar = () => {
     <AppWrap>
       <Navigation />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-      <AuthNav />
     </AppWrap>
   );
 };

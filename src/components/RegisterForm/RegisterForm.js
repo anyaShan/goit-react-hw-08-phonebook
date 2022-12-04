@@ -2,7 +2,8 @@ import { Formik, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux/es/exports';
 import { register } from 'redux/auth/operations';
-// import { selectContacts } from 'redux/selectors';
+// import { useAuth } from '../../hooks';
+
 import * as yup from 'yup';
 import { FormWrap, FieldWrap } from './RegisterForm.styled';
 
@@ -14,15 +15,24 @@ let schema = yup.object().shape({
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  // const userAuth = useAuth();
+  // console.log(userAuth);
 
   const namelInputId = nanoid();
   const emailInputId = nanoid();
   const passwordInputId = nanoid();
 
   const handleFormSubmit = (values, { resetForm }) => {
-    const { name, email, password } = values;
+    // const { name, email } = values;
+    // if (userAuth.name === name) {
+    //   return alert(`This ${name} already exists, please choose another.`);
+    // }
+    // if (userAuth.email === email) {
+    //   return alert(`This ${email} already exists, please choose another.`);
+    // }
+    // console.log(values);
 
-    dispatch(register({ name, email, password }));
+    dispatch(register(values));
     resetForm();
   };
 
@@ -40,8 +50,8 @@ export const RegisterForm = () => {
         <div>
           <label htmlFor={namelInputId}>Name</label>
           <FieldWrap
-            type="namelInputId"
-            name="namelInputId"
+            type="name"
+            name="name"
             required
             placeholder="User"
             id={namelInputId}
