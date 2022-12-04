@@ -1,6 +1,6 @@
 import { Formik, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
-import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { useDispatch } from 'react-redux/es/exports';
 import { logIn } from 'redux/auth/operations';
 import * as yup from 'yup';
 import { FormWrap, FieldWrap } from './LoginForm.styled';
