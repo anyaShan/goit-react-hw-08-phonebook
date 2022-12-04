@@ -1,8 +1,7 @@
 import { Formik, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
-// import { useDispatch, useSelector } from 'react-redux/es/exports';
-// import { addContact } from 'redux/operations';
-// import { selectContacts } from 'redux/selectors';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { logIn } from 'redux/auth/operations';
 import * as yup from 'yup';
 import { FormWrap, FieldWrap } from './LoginForm.styled';
 
@@ -12,15 +11,15 @@ let schema = yup.object().shape({
 });
 
 export const LoginForm = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   //   const contacts = useSelector(selectContacts);
   const emailInputId = nanoid();
   const passwordInputId = nanoid();
 
   const handleFormSubmit = (values, { resetForm }) => {
-    // const { email, password } = values;
+    const { email, password } = values;
 
-    // dispatch(addContact({ email, password }));
+    dispatch(logIn({ email, password }));
     resetForm();
   };
 
